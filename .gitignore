@@ -1,3 +1,5 @@
 # Ignore Sphinx Output
 _build
 
+# Cache
+__pycache__
