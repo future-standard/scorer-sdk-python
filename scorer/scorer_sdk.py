@@ -102,6 +102,10 @@ class Uploader:
     """Uploader class. Class for upload video and log to SCORER cloud server.
     """
     def __init__(self, task):
+        """Initialize the instance
+        :param task: Task name for log header
+
+        """
         self.task = task
 
     def upload(self, log_dictionary=None, log_list=None, log_str=None, images=None):
@@ -183,6 +187,11 @@ class VideoCapture:
     """VideoCapture class. Class for video captureing from camera.
     """
     def __init__(self, index, blocking=True):
+        """Initialize the instance
+        :param index: Camera index
+        :param blocking: True if VideoCapture read data as blocking mode
+
+        """
         zmq_str = "ipc://@/scorer/frame_grabber-video"
         sock = zmq_str + str(index);
         #
@@ -236,6 +245,13 @@ class VideoCapture:
 
 class VideoFrame:
     """VideoFrame class. This class handles frame and date data.
+
+    Attributes:
+        width        width of the frame
+        height       width of the frame
+        time         time of the frame
+        datetime     datetime of the frame
+        msec         msec of the frame
     """
     def __init__(self, timestamp, format, rows, cols, mat_type, data):
         """Initialize the instance
