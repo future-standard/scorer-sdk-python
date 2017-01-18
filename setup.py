@@ -7,7 +7,7 @@ from setuptools import setup
 def main():
     setup(
         name='scorer-sdk',
-        version='0.4.0',
+        version='0.5.0',
         description='A Software Development Kit for Scorer',
         url='https://github.com/future-standard/',
         zip_safe=False,
