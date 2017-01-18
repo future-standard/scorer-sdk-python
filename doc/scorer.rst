@@ -4,10 +4,10 @@ scorer package
 Submodules
 ----------
 
-scorer.sdk module
------------------
+scorer.scorer_sdk module
+------------------------
 
-.. automodule:: scorer.sdk
+.. automodule:: scorer.scorer_sdk
     :members:
     :undoc-members:
     :show-inheritance:
