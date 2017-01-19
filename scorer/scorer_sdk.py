@@ -32,9 +32,6 @@ web_sock2_str     = "ipc://@/scorer/web-sdk2"
 web_sock3_str     = "ipc://@/scorer/web-sdk3"
 web_sock4_str     = "ipc://@/scorer/web-sdk4"
 
-SCORER_DEV_CONFIG = "/opt/scorer/home/dev/lib/CONFIG"
-USER_ROI_DATA = "USER_ROI_DATA="
-
 # For ZMQ connetion
 ctx = zmq.Context()
 
