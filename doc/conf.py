@@ -19,8 +19,8 @@
 #
 import os
 import sys
-sys.path.append('/root/scorer-sdk-python/')
-sys.path.insert(0, '/root/scorer-sdk-python/scorer')
+sys.path.append('.')
+sys.path.insert(0, './scorer')
 
 
 # -- General configuration ------------------------------------------------
