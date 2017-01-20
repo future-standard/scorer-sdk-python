@@ -41,8 +41,8 @@ fi
 echo "SCORER Python SDK Document Created."
 
 # Update API DOC 
-rm -rf $HOME/SDK_API
-cp -r _build/html $HOME/SDK_API
+rm -rf $HOME/html/SDK_API
+cp -r _build/html $HOME/html/SDK_API
 
 echo "install script successfully completed."
 exit 0
