@@ -40,8 +40,7 @@ while True:
 	if frame == None:
 		continue
 	bgr = frame.get_bgr()
-	bgr = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
-	bgr = cv2.cvtColor(bgr, cv2.COLOR_GRAY2BGR)
+
 	x1,y1,x2,y2 = roi.get_roi_rect_by_index(0)
 	x1l,y1l,x2l,y2l = roi.get_roi_line_by_index(0)
 	width = int(x2-x1)
