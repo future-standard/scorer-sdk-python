@@ -1,0 +1,47 @@
+<html>
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=800px">
+    <script src="./scripts/jquery-2.2.4.min.js"></script>
+    <script src="./scripts/fabric.min.js"></script>
+    <script src="common.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="common.css" />
+ </head>
+ <body>
+  <div>
+    <div style="width: 640px; margin: 30px auto 0; position:relative ">
+      <canvas width="640" height="480" style="position: relative;" id="canvas"></canvas>
+      <canvas width="640" height="480" style="position: absolute;z-index: 2;top: 0;pointer-events: none;" id="canvas_text"></canvas>
+    </div>
+    <div style="text-align: center; margin: 10px 0">
+      <input type="button" class="display" value="Hide" name="">
+      <input type="button" class="line" value="Line" name="">
+      <input type="button" class="rect" value="Rect" name="">
+      <input type="button" class="circle" value="Circle" name="">
+      <input type="button" class="delete" value="Remove" name="">
+      <input type="button" class="json" value="Save" name="">
+      <input type="button" class="load_json" value="Load" name="">
+    </div>
+    <div>
+	    <input type="button" class="on" value="On" name=""><img class="onimg" src="image/on.png">
+      <input type="button" class="off" value="Off" name=""><img class="offimg" src="image/off.png">
+      <input type="button" class="judge" value="Judge" name="">
+    </div>
+    <div>
+      <h3>使い方</h3>
+      <p>
+        このWEBアプリはスイッチのON/OFF状態を画像であらかじめ記録し、今どちらの状態にあるのか判定するプログラムです<br>
+        １Rectを選択<br>
+        ２表示された「rect0」をスイッチの位置に合わせサイズを調整する<br>
+        ３「Save」をおして、エリアを確定させる<br>
+        ４スイッチをONにして「On」ボタンを押す<br>
+        ５スイッチをOFFにして「Off」ボタンを押す<br>
+        ６スイッチをどちらかにして「Judge」ボタンを押してスイッチの状態が一致しているか確認する<br>
+      </p>
+    </div>
+    
+  </div>
+ </body>
+</html>
+
+
