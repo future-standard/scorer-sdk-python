@@ -24,7 +24,7 @@ fi
 echo "SCORER Python SDK install succeeded."
 
 # Sphinx Document Make
-cd doc
+pushd doc
 if [ ! -d _static ]; then
     mkdir _static
 fi
@@ -43,6 +43,27 @@ echo "SCORER Python SDK Document Created."
 # Update API DOC 
 rm -rf $HOME/html/SDK_API
 cp -r _build/html $HOME/html/SDK_API
+
+popd
+
+# Install Javascript related files
+JQUERY_VERSION=2.2.4
+JQUERY_URL=https://code.jquery.com/jquery-${JQUERY_VERSION}.min.js
+
+JQUERY_FILE=`basename $JQUERY_URL`
+wget -q "$JQUERY_URL" -O /tmp/$JQUERY_FILE
+cp /tmp/$JQUERY_FILE samples/lib/roi/scripts/
+cp /tmp/$JQUERY_FILE samples/SwitchJudge/scripts/
+
+# Obtain the jabric.js stable release and install
+FABRICJS_VERSION=1.7.0
+FABRICJS_URL=http://cdnjs.cloudflare.com/ajax/libs/fabric.js/${FABRICJS_VERSION}/fabric.min.js
+
+FABRICJS_FILE=`basename $FABRICJS_URL`
+wget -q "$FABRICJS_URL" -O /tmp/$FABRICJS_FILE
+
+cp /tmp/$FABRICJS_FILE samples/lib/roi/scripts
+cp /tmp/$FABRICJS_FILE samples/SwitchJudge/scripts
 
 echo "install script successfully completed."
 exit 0
