@@ -353,5 +353,30 @@ $(function(){
 
   }, 1000);
   
+  // On image save
+  $('.on').on('click', function(){
+    //alert('on save?');
+    $.get('on.php', {},function(data){
+        //alert(data);
+        $('.onimg').attr("src","image/on.png" + "?num="+Math.floor( Math.random() * 10000 ))
+    });
+  });
+
+  // Off Image save
+  $('.off').on('click', function(){
+    //alert('off save?');
+    $.get('off.php', {}, function(data){
+        //alert(data);
+        $('.offimg').attr("src","image/off.png" + "?num="+Math.floor( Math.random() * 10000 ))
+    });
+  });
+  // Judge 
+  $('.judge').on('click', function(){
+    //alert('off save?');
+    $.get('judge.php', {}, function(data){
+        alert(data);
+    });
+  });    
+
 
 });
