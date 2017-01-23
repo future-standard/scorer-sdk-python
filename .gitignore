@@ -3,3 +3,7 @@ _build
 
 # Cache
 __pycache__
+
+# Javascripts libraries
+fabric.min.js
+jquery-2.2.4.min.js
