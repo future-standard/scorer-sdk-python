@@ -16,8 +16,11 @@
 import numpy as np
 import re
 import json
+import os
 
-ROI_FILE="/opt/scorer/home/dev/html/user_roi.json"
+home=os.getenv('HOME')
+
+ROI_FILE=home + "/scorer-sdk-python/samples/lib/user_roi.json"
 
 class ROIStorage:
     """ROI data strage class. Class for data starge of ROI data
@@ -33,7 +36,7 @@ class ROIStorage:
         try:
             user_roi_file = open(roi_fname, 'r')
         except IOError:
-            print("ERROR:Can not Open ROI Configuration file.")
+            print("ERROR:Can not Open ROI Configuration file. [" + ROI_FILE  + "]")
             exit(1)
     
         data = json.load(user_roi_file)

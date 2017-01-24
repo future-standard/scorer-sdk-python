@@ -1,7 +1,8 @@
 <?php
 
   // get config
-  $json_file_path = "/opt/scorer/home/dev/html/user_roi.json";
+  $home = getenv('HOME');
+  $json_file_path = $home . "/scorer-sdk-python/samples/lib/user_roi.json";
 
   // create json file when received json data
   if(isset($_POST['json'])){
