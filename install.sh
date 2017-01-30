@@ -52,8 +52,7 @@ JQUERY_URL=https://code.jquery.com/jquery-${JQUERY_VERSION}.min.js
 
 JQUERY_FILE=`basename $JQUERY_URL`
 wget -q "$JQUERY_URL" -O /tmp/$JQUERY_FILE
-cp /tmp/$JQUERY_FILE samples/lib/roi/scripts/
-cp /tmp/$JQUERY_FILE samples/SwitchJudge/scripts/
+cp /tmp/$JQUERY_FILE samples/scripts/
 
 # Obtain the jabric.js stable release and install
 FABRICJS_VERSION=1.7.0
@@ -61,9 +60,7 @@ FABRICJS_URL=http://cdnjs.cloudflare.com/ajax/libs/fabric.js/${FABRICJS_VERSION}
 
 FABRICJS_FILE=`basename $FABRICJS_URL`
 wget -q "$FABRICJS_URL" -O /tmp/$FABRICJS_FILE
-
-cp /tmp/$FABRICJS_FILE samples/lib/roi/scripts
-cp /tmp/$FABRICJS_FILE samples/SwitchJudge/scripts
+cp /tmp/$FABRICJS_FILE samples/scripts/
 
 echo "install script successfully completed."
 exit 0
