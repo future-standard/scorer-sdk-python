@@ -116,10 +116,6 @@ class Uploader:
         """
         result_str=""
 
-        print(log_dictionary)
-        print(log_list)
-        print(log_str)
-
         # Syntax check
         if log_dictionary is not None and isinstance(log_dictionary, dict) == False:
              print("log_dictionary is not a dictionary")
