@@ -57,12 +57,19 @@ web_sock2_bind_set = False
 web_sock3_bind_set = False
 web_sock4_bind_set = False
 
+def is_numpy(value):
+    return hasattr(value, 'dtype')
+
 def imshow(index, cvmat):
     """Send the opencv image data to Flask web server
 
     :param cvmat: Opencv image data
     :param index: Web server index
     """
+
+    if( not is_numpy(cvmat) ):
+        raise TypeError('cvmat is not a numpy array')
+
     global web_sock1_bind_set,web_sock2_bind_set,web_sock3_bind_set,web_sock4_bind_set
     serialized = pickle.dumps(cvmat, protocol=4)
     if index == 1:
@@ -164,6 +171,9 @@ class Uploader:
 
         # Send images and log payload
         for i in range( images_n ):
+            if( not is_numpy(images[i]) ):
+                raise TypeError('image ' + str(i) + ' is not a numpy array')
+
             height, width = images[i].shape[:2]
             ndim = images[i].ndim
             data_info = np.array( [height, width, ndim] );
