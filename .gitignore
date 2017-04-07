@@ -8,6 +8,11 @@ __pycache__
 fabric.min.js
 jquery-2.2.4.min.js
 
+# Image file
+/samples/SwitchJudge/image/
+/samples/Tesseract/image/
+
+
 # json
 switchjudge.json
 tesseract.json
