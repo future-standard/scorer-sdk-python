@@ -7,3 +7,7 @@ __pycache__
 # Javascripts libraries
 fabric.min.js
 jquery-2.2.4.min.js
+
+# json
+switchjudge.json
+tesseract.json
