@@ -17,6 +17,7 @@ It collaborate with Scorer for Raspberry Pi.
 #See the License for the specific language governing permissions and
 #limitations under the License.
 
+import sys
 import zmq
 import struct
 import cv2
@@ -56,9 +57,8 @@ web_sock1_bind_set = False
 web_sock2_bind_set = False
 web_sock3_bind_set = False
 web_sock4_bind_set = False
-
-def is_numpy(value):
-    return hasattr(value, 'dtype')
+#
+upload_interval = 1
 
 def imshow(index, cvmat):
     """Send the opencv image data to Flask web server
@@ -111,6 +111,7 @@ class Uploader:
 
         """
         self.task = task
+        self.start=time.time()
 
     def upload(self, log_dictionary=None, log_list=None, log_str=None, images=None):
         """Upload snapshots image and log to SCORER cloud server
@@ -121,6 +122,16 @@ class Uploader:
         :param images: list of numpy images
         :return: upload success then retun True otherwise return False
         """
+        end = time.time()
+
+        # Upload interval check
+        if end-self.start < upload_interval:
+            sys.stderr.write("WRN:Upload interval must have more than " + str(upload_interval) + "sec. This contents are ignored.\n")
+            sys.stderr.flush()
+            return False
+
+        self.start=time.time()
+
         result_str=""
 
         # Syntax check
