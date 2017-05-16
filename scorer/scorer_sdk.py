@@ -153,15 +153,15 @@ class Uploader:
 
         # Combine the log payload text
         if log_dictionary is not None:
-            result_str=str(log_dictionary)
+            result_str=str(log_dictionary).replace('{', '(').replace('}', ')')
         if log_list is not None:
-            result_str=result_str+str(log_list)
+            result_str=result_str+str(log_list).replace('[', '(').replace(']', ')')
         if log_str is not None:
-            result_str=result_str + "(" + log_str + ")"
+            result_str="{" + result_str + "(" + log_str + ")" + "}"
 
         result_str = result_str.replace(' ', '')
         if len(result_str) == 0:
-            result_str="\"\""
+            result_str="{(Null)}"
 
         name = "Log".encode('utf-8')
         id = "1".encode('utf-8')
