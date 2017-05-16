@@ -67,6 +67,7 @@ TESSERACT_ENG_DIC_URL=https://github.com/tesseract-ocr/tessdata/raw/master/eng.t
 TESSERACT_ENG_DIC=`basename $TESSERACT_ENG_DIC_URL`
 
 wget -q "$TESSERACT_ENG_DIC_URL" -O /tmp/$TESSERACT_ENG_DIC
+mkdir samples/Tesseract/tessdata/
 mv /tmp/$TESSERACT_ENG_DIC samples/Tesseract/tessdata/
 
 echo "install script successfully completed."
