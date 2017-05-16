@@ -62,5 +62,12 @@ FABRICJS_FILE=`basename $FABRICJS_URL`
 wget -q "$FABRICJS_URL" -O /tmp/$FABRICJS_FILE
 cp /tmp/$FABRICJS_FILE samples/scripts/
 
+# Install Tesseract English Dictionary
+TESSERACT_ENG_DIC_URL=https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata
+TESSERACT_ENG_DIC=`basename $TESSERACT_ENG_DIC_URL`
+
+wget -q "$TESSERACT_ENG_DIC_URL" -O /tmp/$TESSERACT_ENG_DIC
+mv /tmp/$TESSERACT_ENG_DIC samples/Tesseract/tessdata/
+
 echo "install script successfully completed."
 exit 0
