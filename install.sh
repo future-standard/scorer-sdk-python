@@ -47,7 +47,7 @@ cp -r _build/html $HOME/html/SDK_API
 popd
 
 # Install Javascript related files
-JQUERY_VERSION=2.2.4
+JQUERY_VERSION=3.2.1
 JQUERY_URL=https://code.jquery.com/jquery-${JQUERY_VERSION}.min.js
 
 JQUERY_FILE=`basename $JQUERY_URL`
