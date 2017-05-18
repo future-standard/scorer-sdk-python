@@ -16,3 +16,6 @@ jquery-2.2.4.min.js
 # json
 switchjudge.json
 tesseract.json
+
+# Javascript Dir
+samples/scripts/
