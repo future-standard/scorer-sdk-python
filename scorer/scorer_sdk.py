@@ -58,7 +58,7 @@ web_sock2_bind_set = False
 web_sock3_bind_set = False
 web_sock4_bind_set = False
 #
-upload_interval = 1
+upload_interval = 5
 
 def imshow(index, cvmat):
     """Send the opencv image data to Flask web server
