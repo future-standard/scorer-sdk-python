@@ -3,10 +3,10 @@
   system($currentpath.'saveimg.py', $result);
   if($result==0){
     $data = $_GET['name'];
-    if($data==all){
-      exec('/opt/scorer/bin/tesseract '.$currentpath.'image/tesseract.bmp stdout 2>/dev/null -tessdata --tessdata-dir '.$currentpath, $results);
+    if( strcmp($data, "all") == 0 ){
+      exec('/opt/scorer/bin/tesseract '.$currentpath.'image/tesseract.bmp stdout 2>/dev/null', $results);
     }else{
-      exec('/opt/scorer/bin/tesseract '.$currentpath.'image/tesseract.bmp stdout 2>/dev/null -tessdata --tessdata-dir '.$currentpath.' '.$currentpath.$data.'.conf', $results);
+      exec('/opt/scorer/bin/tesseract '.$currentpath.'image/tesseract.bmp stdout 2>/dev/null ' .$currentpath.$data.'.conf', $results);
     }
 
     foreach($results as $result){
