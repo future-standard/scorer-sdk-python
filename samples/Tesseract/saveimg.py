@@ -26,5 +26,5 @@ bgr = frame.get_bgr()
 rect = bgr[y1:y2, x1:x2]
 
 cv2.imwrite("image/tesseract.bmp",rect)
-sys.exit(0)
+os._exit(0)
 
