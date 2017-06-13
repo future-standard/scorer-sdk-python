@@ -1,6 +1,6 @@
 <?php
   $currentpath = dirname(__FILE__)."/";
-  system('python3 '.$currentpath.'saveimg.py', $result);
+  system($currentpath.'saveimg.py', $result);
   if($result==0){
     $data = $_GET['name'];
     if($data==all){
