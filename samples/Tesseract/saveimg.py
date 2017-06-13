@@ -9,6 +9,10 @@ import scorer_util
 
 args = sys.argv
 
+TARGET_DIR = "./image/"
+if not os.path.isdir(TARGET_DIR):
+    os.makedirs(TARGET_DIR)
+
 cap = scorer.VideoCapture(0)
 roi = scorer_util.ROIStorage(os.path.dirname(__file__)+"/tesseract.json")
 
