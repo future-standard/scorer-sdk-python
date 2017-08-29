@@ -1,0 +1,46 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.menu {
+  text-align: right;
+  padding: 20px;
+  border-bottom: solid 1px #ccc;
+}
+
+input {
+  border: solid 1px white;
+  width: 100px;
+  height: 30px;
+}
+
+canvas {
+  border: solid 1px #595959;
+}
+
+#status button{
+  font-size: 1.0em; 
+  font-weight: bold; 
+  padding: 5px 5px; 
+}
+
+#status button.start { 
+  background-color: #248; 
+  color: #fff; 
+}
+
+#status button.stop { 
+  background-color: #f00; 
+  color: #fff; 
+}
+
+#result .stable { 
+  font-weight: bold;
+  color: #559723; 
+}
+
+#result .unstable { 
+  font-weight: bold;
+  color: #f00; 
+}
