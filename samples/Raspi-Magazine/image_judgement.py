@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
- recorder.py
+ image_judgement.py
 
  Copyright (c) 2017 Future Standard Co., Ltd.
 
