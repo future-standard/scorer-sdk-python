@@ -1,0 +1,276 @@
+<html>
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=800px">
+    <script src="/samples/scripts/jquery-3.2.1.min.js"></script>
+    <script src="./scripts/common.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="./scripts/common.css" />
+ </head>
+ <body>
+  <div>
+    <div class="box-container">
+      <div class="box">
+        <img>
+      </div>
+      <div class="box log">
+        <pre>
+      </div>
+    </div>
+    <div id="status" style="text-align: center; margin: 10px 0">
+      <span>Stopped / </span>
+      <button type="button" class="start" value="action">Start</button>
+    </div>
+    <div class="gallery">
+      <p>Configuration</p>
+
+      <table style="border-style: hidden;">
+        <tr>
+
+          <td style="border-style: hidden;">
+            <table>
+              <tr>
+                <th colspan=2>Baud Rate</th>
+              </tr>
+              <tr>
+                <td>9600</td>
+                <td><input type="radio" name="baudrate" value="9600" checked="checked"></td>
+              </tr>
+              <tr>
+                <td>38400</td>
+                <td><input type="radio" name="baudrate" value="38400"></td>
+              </tr>
+              <tr>
+                <td>115200</td>
+                <td><input type="radio" name="baudrate" value="115200"></td>
+              </tr>
+              <tr>
+                <td>230400</td>
+                <td><input type="radio" name="baudrate" value="230400"></td>
+              </tr>
+              <tr>
+                <td>460800</td>
+                <td><input type="radio" name="baudrate"  value="460800"></td>
+              </tr>
+              <tr>
+                <td>921600</td>
+                <td><input type="radio" name="baudrate"  value="921600"></td>
+              </tr>
+            </table>
+          </td>
+          
+          <td style="border-style: hidden;">
+            <table>
+              <tr>
+                <th colspan=2>Camera Angle</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td><input type="radio" name="camera_angle" value="0" checked="checked"></td>
+              </tr>
+              <tr>
+                <td>90</td>
+                <td><input type="radio" name="camera_angle" value="90"></td>
+              </tr>
+              <tr>
+                <td>180</td>
+                <td><input type="radio" name="camera_angle" value="180"></td>
+              </tr>
+              <tr>
+                <td>270</td>
+                <td><input type="radio" name="camera_angle" value="270"/></td>
+              </tr>
+            </table>
+          </td>
+
+          <td style="border-style: hidden;">
+            <table>
+              <tr>
+                <th colspan=2>Image Size</th>
+              </tr>
+              <tr>
+                <td>QVGA (320x240)</td>
+                <td><input type="radio" name="image_size" value="qvga"></td>
+              </tr>
+              <tr>
+                <td>QQVGA (160x120)</td>
+                <td><input type="radio" name="image_size" value="half" checked="checked"></td>
+              </tr>
+              <tr>
+                <td>None</td>
+                <td><input type="radio" name="image_size" value="none"></td>
+              </tr>
+            </table>
+          </td>
+
+          <td style="border-style: hidden;">
+            <table>
+              <tr>
+                <th>Exec Function</th><th>On</th><th>Off</th>
+              </tr>
+              <tr>
+                <td align="left">Body Detection</td>
+                <td><input type="radio" name="body_detection" value="1" checked="checked"></td>
+                <td><input type="radio" name="body_detection" value="0"></td>
+              </tr>
+              <tr>
+                <td align="left">Hand Detection</td>
+                <td><input type="radio" name="hand_detection" value="1" checked="checked"></td>
+                <td><input type="radio" name="hand_detection" value="0"></td>
+              </tr>
+              <tr>
+                <td align="left">Face Detection</td>
+                <td><input type="radio" name="face_detection" value="1" checked="checked"></td>
+                <td><input type="radio" name="face_detection" value="0"></td>
+              </tr>
+              <tr>
+                <td align="left">Face Direction</td>
+                <td><input type="radio" name="face_direction" value="1" checked="checked"></td>
+                <td><input type="radio" name="face_direction" value="0"></td>
+              </tr>
+              <tr>
+                <td align="left">Age Estimation</td>
+                <td><input type="radio" name="age_estimation" value="1" checked="checked"></td>
+                <td><input type="radio" name="age_estimation" value="0"></td>
+              </tr>
+              <tr>
+                <td align="left">Gender Estimation</td>
+                <td><input type="radio" name="gender_estimation" value="1" checked="checked"></td>
+                <td><input type="radio" name="gender_estimation" value="0"></td>
+              </tr>
+              <tr>
+                <td align="left">Gaze Estimation</td>
+                <td><input type="radio" name="gaze_estimation" value="1" checked="checked"></td>
+                <td><input type="radio" name="gaze_estimation" value="0"></td>
+              </tr>
+              <tr>
+                <td align="left">Blink Estimation</td>
+                <td><input type="radio" name="blink_estimation" value="1" checked="checked"></td>
+                <td><input type="radio" name="blink_estimation" value="0"></td>
+              </tr>
+              <tr>
+                <td align="left">Expression Estimation</td>
+                <td><input type="radio" name="expression_estimation" value="1" checked="checked"></td>
+                <td><input type="radio" name="expression_estimation" value="0"></td>
+              </tr>
+              <tr>
+                <td align="left">Face Recognition</td>
+                <td><input type="radio" name="face_recognition" value="1" checked="checked"></td>
+                <td><input type="radio" name="face_recognition" value="0"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="gallery">
+      <a class="toggle menu">Detection Configuration</a>
+      <div class="inner child box-container">
+        <div class="config-box" style="width: 400px; height: 160px;">
+          <h4>Threshold</h4>
+          <dl class="compact">
+            <dt>Body Detection</dt><dd><div><input id="body_detection_threshold" type="number" min="1" max="1000" value="500" required></div></dd>
+            <dt>Hand Detection</dt><dd><div><input id="hand_detection_threshold" type="number" min="1" max="1000" value="500" required></div></dd>
+            <dt>Face Detection</dt><dd><div><input id="face_detection_threshold" type="number" min="1" max="1000" value="500" required></div></dd>
+            <dt>Face Recognition</dt><dd><div><input id="face_recognition_threshold" type="number" min="0" max="1000" value="500" required></div></dd>
+          </dl>
+        </div>
+        <div class="config-box" style="width: 400px; height: 160px;">
+          <h4>Detection Size</h4>
+          <dl class="compact">
+            <dt>Body Detection</dt><dd><div><input id="body_detection_size_min" type="number" min="20" max="8192" value="30" required> - <input id="body_detection_size_max" type="number" min="20" max="8192" value="8192" required></div></dd>
+            <dt>Hand Detection</dt><dd><div><input id="hand_detection_size_min" type="number" min="20" max="8192" value="40" required> - <input id="hand_detection_size_max" type="number" min="20" max="8192" value="8192" required></div></dd>
+            <dt>Face Detection</dt><dd><div><input id="face_detection_size_min" type="number" min="20" max="8192" value="64" required> - <input id="face_detection_size_max" type="number" min="20" max="8192" value="8192" required></div></dd>
+          </dl>
+        </div>
+        <div class="config-box" style="width: 400px; height: 160px;">
+          <h4>Detection Angle</h4>
+          <table style="border-style: hidden;">
+            <tr>
+              <td style="border-style: hidden;">
+                <table>
+                  <tr>
+                    <th colspan=2>Left / Right</th>
+                  </tr>
+                  <tr>
+                    <td>&plusmn;30 degrees</td>
+                    <td><input type="radio" name="detection_angle_lr" value="30" checked="checked"></td>
+                  </tr>
+                  <tr>
+                    <td>&plusmn;60 degrees</td>
+                    <td><input type="radio" name="detection_angle_lr" value="60"></td>
+                  </tr>
+                  <tr>
+                    <td>&plusmn;90 degrees</td>
+                    <td><input type="radio" name="detection_angle_lr" value="90"></td>
+                  </tr>
+                </table>
+              </td>
+              <td style="border-style: hidden;">
+                <table>
+                  <tr>
+                    <th colspan=2>Up / Down</th>
+                  </tr>
+                  <tr>
+                    <td>&plusmn;15 degrees</td>
+                    <td><input type="radio" name="detection_angle_ud" value="15" checked="checked"></td>
+                  </tr>
+                  <tr>
+                    <td>&plusmn;45 degrees</td>
+                    <td><input type="radio" name="detection_angle_ud" value="45"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="gallery">
+      <a class="toggle menu">STB Configuration</a>
+      <div class="inner child box-container">
+        <div class="config-box" style="width: 400px; height: 190px;">
+          <h4>Estimation</h4>
+          <dl class="compact">
+            <dt>Complete Frame Count</dt><dd><div><input id="stb_pe_complete_frame_count" type="number" min="1" max="20" value="5" required></div></dd>
+            <dt>Threshold</dt><dd><div><input id="stb_pe_threshold" type="number" min="0" max="1000" value="300" required></div></dd>
+            <dt>Up / Down Angle</dt><dd><div><input id="stb_pe_angle_ud_min" type="number" min="-90" max="90" value="-15" required> - <input id="stb_pe_angle_ud_max" type="number" min="-90" max="90" value="20" required></div></dd>
+            <dt>Left / Right Angle</dt><dd><div><input id="stb_pe_angle_lr_min" type="number" min="-90" max="90" value="-30" required> - <input id="stb_pe_angle_lr_max" type="number" min="-90" max="90" value="30" required></div></dd>
+          </dl>
+        </div>
+        <div class="config-box" style="width: 400px; height: 190px;">
+          <h4>Recognition</h4>
+          <dl class="compact">
+            <dt>Complete Frame Count</dt><dd><div><input id="stb_fr_complete_frame_count" type="number" min="1" max="20" value="5" required></div></dd>
+            <dt>Threshold</dt><dd><div><input id="stb_fr_threshold" type="number" min="0" max="1000" value="300" required></div></dd>
+            <dt>Up / Down Angle</dt><dd><div><input id="stb_fr_angle_ud_min" type="number" min="-90" max="90" value="-15" required> - <input id="stb_fr_angle_ud_max" type="number" min="-90" max="90" value="20" required></div></dd>
+            <dt>Left / Right Angle</dt><dd><div><input id="stb_fr_angle_lr_min" type="number" min="-90" max="90" value="-30" required> - <input id="stb_fr_angle_lr_max" type="number" min="-90" max="90" value="30" required></div></dd>
+            <dt>Min Ratio</dt><dd><div><input id="stb_fr_min_ratio" type="number" min="0" max="100" value="60" required></div></dd>
+          </dl>
+        </div>
+        <div class="config-box" style="width: 400px; height: 140px;">
+          <h4>Tracking</h4>
+          <dl class="compact">
+            <dt>Retry Count</dt><dd><div><input id="stb_tr_retry_count" type="number" min="0" max="300" value="2" required></div></dd>
+            <dt>Pos Steadiness Param</dt><dd><div><input id="stb_tr_pos_steadiness" type="number" min="0" max="100" value="30" required></div></dd>
+            <dt>Size Steadiness Param</dt><dd><div><input id="stb_tr_size_steadiness" type="number" min="0" max="100" value="30" required></div></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div style="margin-left: 320px">
+      <h3>Usage</h3>
+      <p>
+        This sample page shows the demonstration of HVC-P2<br>
+        <ol>
+            <li>Set "Configuration"</li>
+            <li>Change "Detection Configuration" and "STB Configuration" as necessary</li>
+            <li>Press "Start" to start detection</li>
+        </ol>
+      </p>
+    </div>
+    
+  </div>
+ </body>
+</html>
+
+

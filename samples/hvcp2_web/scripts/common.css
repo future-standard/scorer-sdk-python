@@ -1,0 +1,151 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body{margin:0; padding:0; font:100% Verdana,Arial,Helvetica,sans-serif; font-size:14px;}
+
+.box-container {
+	overflow: hidden;
+	width: 840px;
+	margin: 0 auto;
+}
+
+.box {
+	float: left;
+  width: 400px;
+  height: 300px;
+  border-style: solid;
+  border-width: 1;
+  border-color: gray;
+  margin: 19 9;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
+.log{
+  overflow: auto;
+}
+
+.log pre{
+  margin: 0 3;
+}
+
+.gallery {border:1px #ccc solid; margin:20px auto; text-align:center; clear:both;}
+
+.gallery p {color:#004694;}
+.gallery a {color:#004694;}
+.gallery figure {margin:10px; display:inline-block;}
+
+.gallery table {margin: 0px 2px 5px; border-collapse: collapse; border-spacing:0px; border-top:1px solid #ccc; border:1px solid #ccc; display:inline-block; font-size: 14px;}
+.gallery table th {padding:4px; color:#444; background-color:#ccc;}
+.gallery table td {padding:4px; background-color:#fafafa; border-right:1px solid #ccc;}
+.gallery table td.file_size {text-align:right;}
+
+.gallery code {border:1px #ccc solid; padding:10px 20px; display:inline-block; text-align:left;}
+
+.menu{
+  display: block;
+  cursor: pointer;
+  margin: 14 0;
+  position: relative;
+}
+
+.menu:hover{
+  text-decoration: underline;
+}
+
+.menu:after {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -9px;
+    content: '>';
+    font-size: 14px;
+    font-weight: bold;
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -moz-transition: all, 0.25s, linear;
+    -o-transition: all, 0.25s, linear;
+    -webkit-transition: all, 0.25s, linear;
+    transition: all, 0.25s, linear;
+}
+ 
+.menu.active:after {
+    -moz-transform: translate(0, 50%);
+    -ms-transform: translate(0, 50%);
+    -webkit-transform: translate(0, 50%);
+    transform: translate(0, 50%);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.child{
+  display: none;
+}
+
+.config-box {
+  float: left; 
+  margin: 10 10;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 1;
+  border-color: gray;
+  overflow: hidden;
+}
+.config-box h4{
+  margin: 10;
+}
+
+.compact { overflow:hidden; margin:10; }
+
+.compact dt, .compact dd, .compact dd div{ 
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 23px;
+  margin: 2 0;
+}
+
+.compact dd div{
+  height: 27px;
+}
+
+.compact dt { 
+  float: left; 
+  clear: left; 
+  width: 180px;
+  margin-right: 5px;
+  background-color: #ccc; 
+}
+
+.compact dd { 
+  clear: right; 
+  padding: 0; 
+}
+
+.compact input[type=number]{
+  width: 60px;
+}
+
+#status button{
+  font-size: 1.0em; 
+  font-weight: bold; 
+  padding: 5px 5px; 
+}
+
+#status button.start { 
+  background-color: #248; 
+  color: #fff; 
+}
+
+#status button.stop { 
+  background-color: #f00; 
+  color: #fff; 
+}
