@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.btn{
+    display:block;
+    font-size:40px;
+    margin: 10px auto;
+    width:100%;
+}
+
+.container{
+    width:100%;
+    text-align: center;
+}
