@@ -26,4 +26,7 @@ for ($i = 0; $i < $roi_count; $i++) {
 $cmd = '/opt/scorer/bin/thermo "'.$currentpath.'" '.$roi_args.'> /dev/null &';
 exec($cmd);
 
+$cmd_log = "python3 ./temp_log.py >> /tmp/xxx &";
+exec($cmd_log);
+
 ?>
