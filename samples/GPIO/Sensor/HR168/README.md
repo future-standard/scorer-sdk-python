@@ -1,5 +1,5 @@
 # 50メートルミニサイズレーザー測距モジュール HR168 (UART接続) サンプル
-レーザーライダー DE-LIDAR TF02 を SCORER で利用するためのサンプル
+50メートルミニサイズレーザー測距モジュール HR168 を SCORER で利用するためのサンプル
 
 ## 接続
 Raspberry Pi3 と HR168 付属のUSB シリアル変換モジュールを接続する
@@ -14,13 +14,13 @@ pip install --user pyserial
 
 1. サンプルを実行してみる
 ```bash
-cd ~/scorer-sdk-python/samples/Sensor/HR168/examples
+cd ~/scorer-sdk-python/samples/GPIO/Sensor/HR168/examples
 sample.py
 ```
 
 ## サンプル実行方法
 1. サンプルへのアクセス
-http://xxx.xxx.xxx.xxx:20002/samples/Sensor/HR168/
+http://xxx.xxx.xxx.xxx:20002/samples/GPIO/Sensor/HR168/
 2. 操作方法
 ブラウザ画面に HR168 で取得した距離が表示される<br>
 ![実行した画面]()
