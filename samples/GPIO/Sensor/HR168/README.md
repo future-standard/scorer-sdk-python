@@ -26,7 +26,7 @@ http://xxx.xxx.xxx.xxx:20002/samples/GPIO/Sensor/HR168/
 ![実行した画面]()
 
 ## ライブラリサンプル
-DE_LIDAR をシンプルに利用したサンプルコード
+HR168 をシンプルに利用したサンプルコード
 ```python:sample.py
 import sys,os
 sys.path.append(os.path.dirname(os.path.abspath(__file__))+"/libs")
