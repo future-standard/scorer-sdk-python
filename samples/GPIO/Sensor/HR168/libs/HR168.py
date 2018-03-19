@@ -23,7 +23,7 @@ class HR168(object):
         if self.serial.in_waiting > 0 :
             v = re.split('[,:\r\n m]', self.serial.readline())
             """ ['D', '', '1.189', "", '0047', '', ''] """
-            self.result = {'distance':float(v[2]),'time':int(v[4])}
+            self.result = {'distance':(float(v[2])*100.0),'time':int(v[4])}
 
         return self.result
 

@@ -53,15 +53,16 @@ class Index{
     this.getJson("distance.php",{},
     function(response){
         //console.log(response);
-        var txt = "---- m";
+        var txt = "----";
         if(response.distance < 0){
             _self.proxy(_self.update,_self)(1);
         }
         else{
-            txt = response.distance+" m";
+            txt = response.distance;
             var p =  (response.distance/response.max);
             _self.proxy(_self.update,_self)(p);
         }
+        txt += " mm";
         document.getElementById("distance").innerHTML = txt;
     },function(e){
         //console.log(e);
