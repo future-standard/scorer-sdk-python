@@ -21,15 +21,25 @@ class HR168(object):
         self.serial.write("D")
         time.sleep(1.0)
         if self.serial.in_waiting > 0 :
-            v = re.split('[,:\r\n m]', self.serial.readline())
+            line=self.serial.readline()
+            print(line)
+
+            if line.startswith("D:Er"):
+                return {'distance': "ERROR"}
+
+            v = line[2:8]
+            self.result = {'distance':float(v),'time':int(v[4])}
             """ ['D', '', '1.189', "", '0047', '', ''] """
-            self.result = {'distance':(float(v[2])*100.0),'time':int(v[4])}
 
         return self.result
 
     def start_ranging(self):
         """start_ranging"""
+        self.serial.write("O")
+        self.serial.readline()
 
     def stop_ranging(self):
         """stop_ranging"""
+        self.serial.write("C")
+        self.serial.readline()
         self.serial.close()
