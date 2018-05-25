@@ -372,3 +372,82 @@ class LogReceive:
 
         """
         self.log_sock.close()
+
+class LogData:
+    """LogData class. This class handles log data.
+
+    """
+    def __init__(self, log):
+        """Initialize the instance
+
+        :param log: log data
+        """
+        self.log_line = log.decode('utf-8')
+        log_array = self.log_line.split()
+        self.type = log_array[0]
+        self.device = log_array[2]
+        self.action = log_array[4]
+        self.date = log_array[6]
+        self.time = log_array[8]
+        self.duration = log_array[10]
+        self.diameter = log_array[12]
+        self.x = log_array[14]
+        self.y = log_array[16]
+        self.x_wander = log_array[18]
+        self.y_wander = log_array[20]
+        self.cross_in = log_array[22]
+        self.cross_out = log_array[24]
+        self.object_count = log_array[26]
+        self.pathway = log_array[28]
+        self.snapshot = log_array[30]
+
+    def get_log_line(self):
+        return self.log_line
+
+    def get_type(self):
+        return self.type
+
+    def get_device(self):
+        return self.device
+
+    def get_action(self):
+        return self.action
+
+    def get_date(self):
+        return self.date
+
+    def get_time(self):
+        return self.time
+
+    def get_duration(self):
+        return self.duration
+
+    def get_diameter(self):
+        return self.diameter
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
+
+    def get_x_wander(self):
+        return self.x_wander
+
+    def get_y_wander(self):
+        return self.y_wander
+
+    def get_cross_in(self):
+        return self.cross_in
+
+    def get_cross_out(self):
+        return self.cross_out
+
+    def get_object_count(self):
+        return self.object_count
+
+    def get_pathway(self):
+        return self.pathway
+
+    def get_snapshot(self):
+        return self.snapshot
