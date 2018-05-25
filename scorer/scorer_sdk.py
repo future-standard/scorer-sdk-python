@@ -315,3 +315,139 @@ class VideoFrame:
         else:
             raise Exception("format is incorrect")
         return gray
+
+class LogReceive:
+    """LogReceive class. Class for log receiving.
+    """
+    def __init__(self, blocking=True):
+        """Initialize the instance
+        :param blocking: True if LogReceive read data as blocking mode
+
+        """
+        sock = "ipc://@/scorer/tracker-sdk"
+        #
+        self.log_sock = ctx.socket(zmq.SUB)
+        self.log_sock.setsockopt_string(zmq.SUBSCRIBE, '')
+        self.log_sock.setsockopt(zmq.RCVHWM, 1)
+        self.log_sock.bind(sock)
+        #
+        self.poller = zmq.Poller()
+        self.poller.register(self.log_sock, zmq.POLLIN)
+        #a
+        self.blocking=blocking
+        if(blocking == True):
+            self.timeout = None
+        else:
+            self.timeout = 0
+
+    def get(self):
+        """ Get data from LogReceive
+
+        :return: Log data
+        """
+        self.events =  dict(self.poller.poll(self.timeout))
+        self.count = 0
+        try:
+            while True:
+                socks = self.events
+                if self.log_sock in socks and socks[self.log_sock] == zmq.POLLIN:
+                    topic, id, log = self.log_sock.recv_multipart(zmq.NOBLOCK, True, False)
+                    self.log_data = LogData(log)
+                    self.count = 1
+        except:
+            if self.count == 0:
+                return (None)
+        return (self.log_data)
+
+
+    def isOpend(self):
+        """ Return true if LogReceive has been ready to read
+
+        :return: True of False
+        """
+        return not(self.log_sock.closed)
+
+    def release(self):
+        """ Close log receiving connection
+
+        """
+        self.log_sock.close()
+
+class LogData:
+    """LogData class. This class handles log data.
+
+    """
+    def __init__(self, log):
+        """Initialize the instance
+
+        :param log: log data
+        """
+        self.log_line = log.decode('utf-8')
+        log_array = self.log_line.split()
+        self.type = log_array[0]
+        self.device = log_array[2]
+        self.action = log_array[4]
+        self.date = log_array[6]
+        self.time = log_array[8]
+        self.duration = log_array[10]
+        self.diameter = log_array[12]
+        self.x = log_array[14]
+        self.y = log_array[16]
+        self.x_wander = log_array[18]
+        self.y_wander = log_array[20]
+        self.cross_in = log_array[22]
+        self.cross_out = log_array[24]
+        self.object_count = log_array[26]
+        self.pathway = log_array[28]
+        self.snapshot = log_array[30]
+
+    def get_log_line(self):
+        return self.log_line
+
+    def get_type(self):
+        return self.type
+
+    def get_device(self):
+        return self.device
+
+    def get_action(self):
+        return self.action
+
+    def get_date(self):
+        return self.date
+
+    def get_time(self):
+        return self.time
+
+    def get_duration(self):
+        return self.duration
+
+    def get_diameter(self):
+        return self.diameter
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
+
+    def get_x_wander(self):
+        return self.x_wander
+
+    def get_y_wander(self):
+        return self.y_wander
+
+    def get_cross_in(self):
+        return self.cross_in
+
+    def get_cross_out(self):
+        return self.cross_out
+
+    def get_object_count(self):
+        return self.object_count
+
+    def get_pathway(self):
+        return self.pathway
+
+    def get_snapshot(self):
+        return self.snapshot
