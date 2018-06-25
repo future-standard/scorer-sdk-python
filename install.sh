@@ -23,6 +23,11 @@ if [ $? -ne 0 ]; then
 fi
 echo "SCORER Python SDK install succeeded."
 
+# Make directory for Javascript libraries
+if [ ! -d samples/scripts ]; then
+    mkdir samples/scripts
+fi
+
 # Sphinx Document Make
 pushd doc
 if [ ! -d _static ]; then
