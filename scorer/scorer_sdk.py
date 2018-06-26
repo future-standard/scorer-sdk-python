@@ -100,10 +100,19 @@ def imshow(index, cvmat):
 
 class Uploader:
     """Uploader class. Class for upload video and log to SCORER cloud server.
+
+    :param task: Task name for log header
+
+    Example::
+ 
+        import scorer
+
+        uploader = scorer.Uploader("TASK")
+        uploader.upload(log_str= log_string, images = img_list)
+
     """
     def __init__(self, task):
         """Initialize the instance
-        :param task: Task name for log header
 
         """
         self.task = task
@@ -191,14 +200,19 @@ class Uploader:
         return True
 
 class VideoCapture:
-    """VideoCapture class. Class for video captureing from camera.
+    """
+    VideoCapture class. Class for video captureing from camera.
+ 
+    :param index: Camera index
+    :param blocking: True if VideoCapture read data as blocking mode
+ 
+    Example::
+ 
+        import scorer
+        cap = scorer.VideoCapture(0)
+
     """
     def __init__(self, index, blocking=True):
-        """Initialize the instance
-        :param index: Camera index
-        :param blocking: True if VideoCapture read data as blocking mode
-
-        """
         zmq_str = "ipc://@/scorer/frame_grabber-video"
         sock = zmq_str + str(index);
         #
@@ -251,24 +265,26 @@ class VideoCapture:
         self.img_sock.close()
 
 class VideoFrame:
-    """VideoFrame class. This class handles frame and date data.
+    """VideoFrame class. This class handles frame and date data. VideoCaputre.read() method returns VideoFrame object.
 
-    Attributes:
-        width        width of the frame
-        height       width of the frame
-        time         time of the frame
-        datetime     datetime of the frame
-        msec         msec of the frame
+    :param timestamp: timestamp of the frame
+    :param format: image format
+    :param row: row of the images
+    :param col: col of the images
+    :param mat_type: mat type of the images
+    :param data: image data
+
+    Example::
+ 
+        import scorer
+        cap = scorer.VideoCapture(0)
+        videoframe = cap.read()
+
     """
     def __init__(self, timestamp, format, rows, cols, mat_type, data):
-        """Initialize the instance
+        """
+        Initialize the instance
 
-        :param timestamp: timestamp of the frame
-        :param format: image format
-        :param row: row of the images
-        :param col: col of the images
-        :param mat_type: mat type of the images
-        :param data: image data
         """
         self.my_time = struct.unpack('!q', timestamp)
         self.my_row = struct.unpack('!i', rows)
@@ -318,10 +334,12 @@ class VideoFrame:
 
 class LogReceive:
     """LogReceive class. Class for log receiving.
+
+    :param blocking: True if LogReceive read data as blocking mode
+
     """
     def __init__(self, blocking=True):
         """Initialize the instance
-        :param blocking: True if LogReceive read data as blocking mode
 
         """
         sock = "ipc://@/scorer/tracker-sdk"
@@ -375,6 +393,8 @@ class LogReceive:
 
 class LogData:
     """LogData class. This class handles log data.
+
+    :param log: Logdata from Scorer
 
     """
     def __init__(self, log):
