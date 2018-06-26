@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Scorer.py  Main library code of Scorer SDK for python
-This is a main socuce code of Scorer SDK for python.<br>
+This is a main socuce code of Scorer SDK for python.
+
 It collaborate with Scorer for Raspberry Pi.
 """
 #Copyright 2017 Future Standard Co., Ltd.
