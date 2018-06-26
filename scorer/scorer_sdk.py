@@ -235,8 +235,13 @@ class VideoCapture:
 
         :return: Frame data
         """
+        if self.img_sock.closed == True:
+            raise Exception("Camera Connection Closed")
+
         self.events =  dict(self.poller.poll(self.timeout))
         self.count = 0
+        if len(self.events) == 0:
+            return (None)
         try:
             while True:
                 socks = self.events
@@ -363,8 +368,13 @@ class LogReceive:
 
         :return: Log data
         """
+        if self.log_sock.closed == True:
+            raise Exception("Log Connection Closed")
+
         self.events =  dict(self.poller.poll(self.timeout))
         self.count = 0
+        if len(self.events) == 0:
+            return (None)
         try:
             while True:
                 socks = self.events
