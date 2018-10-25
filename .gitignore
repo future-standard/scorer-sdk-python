@@ -20,3 +20,6 @@ user_roi.json
 
 # Javascript Dir
 samples/scripts/
+
+# os x
+.DS_Store
