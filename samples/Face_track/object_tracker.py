@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import logging
 from tracked_object import *
-from pykalman import KalmanFilter
+#from pykalman import KalmanFilter
 
 TRACK_DISTANCE_THRESHOLD = 4.0
 TRACK_HIST_LENGTH = 1024

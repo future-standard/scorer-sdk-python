@@ -2,7 +2,7 @@ import scorer
 import cv2
 import numpy as np
 from enum import Enum
-from pykalman import UnscentedKalmanFilter
+#from pykalman import UnscentedKalmanFilter
 
 # Object tracker params
 TRACK_ENDURANCE_THRESHOLD = 3
