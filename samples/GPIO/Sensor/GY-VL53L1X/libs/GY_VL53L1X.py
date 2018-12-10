@@ -3,8 +3,8 @@
 import serial
 import time
 
-#CONTINUOUS_OUTPUT_DISTANCE = [0xA5,0x45,0xEA]
-#QUERY_OUTPUT_DISTANCE_DATA = [0xA5,0x15,0xBA]
+CONTINUOUS_OUTPUT_DISTANCE = [0xA5,0x45,0xEA]
+QUERY_OUTPUT_DISTANCE_DATA = [0xA5,0x15,0xBA]
 
 SAVE_THE_CONFIGURATION = [0xA5,0x25,0xCA]
 
@@ -36,15 +36,14 @@ class GY_VL53L1X(object):
                     v = self.serial.read()
                     if ord(v) == 0x5A:
                         v = self.serial.read()
-                        #print ("v %02X" % (ord(v)))
                         if ord(v) == 0x15:
                             v = self.serial.read()
-                            #print ("v %02X" % (ord(v)))
                             if ord(v) == 0x03:
                                 v = self.serial.read(3)
-                                distance = ord(v[0]) << 8 | ord(v[1])
+                                distance = (v[0]) << 8 | (v[1])
+                                #python2
+                                #distance = ord(v[0]) << 8 | ord(v[1])
                                 #mode = ord(v[2])
-                                #checksum = self.serial.read()
                                 #print ("distance %d mm, mode %d" % (distance,mode))
                                 self.result = {'distance':distance,'max':self.MAX}
                                 break
@@ -58,4 +57,6 @@ class GY_VL53L1X(object):
         self.serial.close()
 
     def write(self,v):
+        # CONTINUOUS_OUTPUT_DISTANCE
+        # QUERY_OUTPUT_DISTANCE_DATA
         self.serial.write(v)
