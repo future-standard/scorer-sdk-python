@@ -36,9 +36,9 @@ import sys,os
 sys.path.append(os.pardir+"/libs")
 
 import time
-import VL53L1X_USB
-tof1 = VL53L1X_USB.VL53L1X_USB("/dev/ttyACM0")
-#tof2 = VL53L1X_USB.VL53L1X_USB("/dev/ttyACM1")
+import GY_VL53L1X
+tof1 = GY_VL53L1X.GY_VL53L1X("/dev/ttyACM0")
+#tof2 = GY_VL53L1X.GY_VL53L1X("/dev/ttyACM1")
 
 # Start ranging
 for c in range(0,100):
