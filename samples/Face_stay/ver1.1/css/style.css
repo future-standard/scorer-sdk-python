@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  text-align: left;
+  font-family: Lato;
+  color: #000;
+  background: #444444;
+}
+
+h1{
+  margin: 20px;
+  color: #EEEEEE
+}
+
+dl.search1{
+        margin: 0px 0 0 1600px;
+        position:relative;
+        background-color:#fff;
+        border:1px solid #aaa;
+        -webkit-border-radius:6px;
+        -moz-border-radius:6px;
+        -o-border-radius:6px;
+        -ms-border-radius:6px;
+        border-radius:6px;
+        width: 250px
+}
+dl.search1 dt{
+        margin-right:40px;
+        padding:8px 0 8px 8px;
+}
+dl.search1 dt input{
+        width:100%;
+        height:24px;
+        line-height:24px;
+        background:none;
+        border:none;
+}
+dl.search1 dd{
+        position:absolute;
+        top:0;
+        right:0;
+}
+dl.search1 dd button{
+        display:block;
+        padding:10px;
+        background:none;
+        border:none;
+}
+dl.search1 dd button span{
+        display:block;
+        width:20px;
+        height:20px;
+        background:url('../images/search.png') no-repeat scroll 0 0;
+}
+
+.tabs {
+  width: 1800px;
+  float: none;
+  list-style: none;
+  text-align: left;
+  position: relative;
+  margin: 10px 0 0 50px;
+}
+.tabs li {
+  width: 120px;
+  float: left;
+  display: block;
+}
+.tabs input[type="radio"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.tabs label {
+  display: block;
+  padding: 14px 21px;
+  border-radius: 2px 2px 0 0;
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  background: #777777;
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.tabs label:hover {
+  background: #AAAAAA;
+}
+.tabs .tab-content {
+  z-index: 2;
+  display:none;
+  overflow: hidden;
+  width: 100%;
+  font-size: 17px;
+  line-height: 25px;
+  padding: 25px;
+  position: absolute;
+  top: 53px;
+  left: 0;
+  background: #DDDDDD;
+}
+.tabs [id^="tab"]:checked + label {
+  top: 0;
+  padding-top: 17px;
+  background: #DDDDDD;
+}
+.tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+  display: block;
+}
