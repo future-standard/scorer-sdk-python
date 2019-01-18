@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.btn{
+    display:block;
+    font-size:40px;
+    margin: 10px auto;
+    width:100%;
+}
+
+body{
+    text-align: center;
+}
+
+.container{
+    width:100%;
+    text-align: center;
+}
+
+#circle {
+    margin: 10px auto;
+    width: 500px;
+	height: 500px;
+	-webkit-border-radius: 250px;/* width,heightの半分 */
+	-moz-border-radius: 250px;
+	border-radius: 250px;
+	background-color: #00C000;
+}
+
+#distance {
+    font-size:2ex;
+}
