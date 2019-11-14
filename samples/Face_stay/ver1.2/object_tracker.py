@@ -153,8 +153,13 @@ class object_tracker:
 		# Imshow		
 		if self._imshow:
 			for i in range(self._objs.shape[0]):
-				image_ = cv2.rectangle(image_, (int(self._objs[i]._roi[0]), int(self._objs[i]._roi[1])), 
-							(int(self._objs[i]._roi[0] + self._objs[i]._roi[2]), int(self._objs[i]._roi[1] + self._objs[i]._roi[3])), (0, 255, 0), 3)
+				if (timestamp_ -  self._objs[i]._start).total_seconds() > self._after_moment_sec:
+					image_ = cv2.rectangle(image_, (int(self._objs[i]._roi[0]), int(self._objs[i]._roi[1])),
+						(int(self._objs[i]._roi[0] + self._objs[i]._roi[2]), int(self._objs[i]._roi[1] + self._objs[i]._roi[3])), (0, 0, 255), 3)
+				else:
+					image_ = cv2.rectangle(image_, (int(self._objs[i]._roi[0]), int(self._objs[i]._roi[1])),
+						(int(self._objs[i]._roi[0] + self._objs[i]._roi[2]), int(self._objs[i]._roi[1] + self._objs[i]._roi[3])), (0, 255, 0), 3)
+				"""
 				for j in range(self._objs[i]._center_hist.shape[0]):
 					image_ = cv2.circle(image_, (int(self._objs[i]._center_hist[j][0]), 
 								int(self._objs[i]._center_hist[j][1])), 5, (0, 0, 0), -1)
@@ -163,6 +168,7 @@ class object_tracker:
 										int(self._objs[i]._center_hist[j - 1][1])),
 									(int(self._objs[i]._center_hist[j][0]), 
 										int(self._objs[i]._center_hist[j][1])), (0, 0, 0), 2)
+				"""
 			scorer.imshow(1, image_)
 
 	def result(self):

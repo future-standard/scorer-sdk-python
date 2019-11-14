@@ -11,17 +11,24 @@
 <link rel="stylesheet" href="css/slider.css">
 <link rel="stylesheet" href="css/balloon.css">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/lightbox.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/tab.js"></script>
+<script src="js/select.js"></script>
+<script src="js/search.js"></script>
 <script src="js/jquery.cookie.js"></script>
-<script src="js/lightbox.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/name.js"></script>
 <title>Enter & Exit List</title>
 </head>
 
 <body>
+
+<?php
+    include('box.php')
+?>
+
 <h1>Enter & Exit List</h1>
 <form>
 <ul class="tabs">
@@ -48,17 +55,33 @@
         </ul>
         </div>
     </li>
+    <!--
+    <li>
+        <input type="radio" class="tab3" name="tabs" id="tab3" value="name"/>
+        <label for="tab3"><center>Name</center></label>
+        <div id="tab-content1" class="tab-content">
+        <ul class="tabslide">
+        <?php
+            include('enter.php')
+        ?>
+        <ul>
+        </div>
+    </li>
+    -->
 </ul>
 </form>
-<form action="./list.php" name="search1" method="post">
+
+<ul class="inputs" name="inputs">
     <dl class="select1">
     <p>
-        <select name="example1">
-        <option value="サンプル1">選択肢のサンプル1</option>
-        <option value="サンプル2">選択肢のサンプル2</option>
-        <option value="サンプル3">選択肢のサンプル3</option>
-        <option value="サンプル4">選択肢のサンプル4</option>
-        <option value="サンプル5">選択肢のサンプル5</option>
+        <h5>In order of</h5>
+        <select class="sort" name="sort">
+            <option id="sort1" value="early_enter">early entering</option>
+            <option id="sort2" value="late_enter">late entering</option>
+            <option id="sort3" value="early_exit">early exiting</option>
+            <option id="sort4" value="late_exit">late exiting</option>
+            <option id="sort5" value="young_age">young age</option>
+            <option id="sort6" value="old_age">old age</option>
         </select>
     </p>
     </dl>
@@ -68,7 +91,7 @@
         ?>
         <dd><button><span></span></button></dd>
     </dl>
-</form>
+</ul>
 
 </body>
 </html>
