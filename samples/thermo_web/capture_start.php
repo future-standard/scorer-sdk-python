@@ -2,8 +2,8 @@
 
 include('process_check.php');
 
-$pid = getPid();
-if ($pid){
+$main_pid = getMainPid();
+if ($main_pid){
   return;
 }
 
@@ -25,6 +25,12 @@ for ($i = 0; $i < $roi_count; $i++) {
 
 $cmd = '/opt/scorer/bin/thermo "'.$currentpath.'" '.$roi_args.'> /dev/null &';
 exec($cmd);
+
+$monitoring_pid = getMonitoringPid();
+if (!$monitoring_pid){
+  $cmd = '/opt/scorer/bin/thermo_monitoring > /dev/null &';
+  exec($cmd);
+}
 
 $cmd_log = "python3 ./temp_log.py >> /tmp/xxx &";
 exec($cmd_log);

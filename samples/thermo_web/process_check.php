@@ -1,9 +1,16 @@
 <?php
 
-echo getPid();
+$mainPid = getMainPid();
+$monitoringPid = getMonitoringPid();
+echo $mainPid.$monitoringPid;
 
-function getPid(){
-    $cmd = 'pgrep thermo;';
+function getMainPid(){
+    $cmd = 'pgrep -x thermo';
+    return exec($cmd);
+}
+
+function getMonitoringPid(){
+    $cmd = 'pgrep thermo_moni';
     return exec($cmd);
 }
 
